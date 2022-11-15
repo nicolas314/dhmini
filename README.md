@@ -10,11 +10,11 @@ This library allows controlling the Pimoroni Display Hat Mini (hereafter: DHMini
 
 Dependencies:
 
-    - Make and C compiler (duh)
-    - GPIO support handled by libgpiod-dev
-    - Truetype font support handled by libfreetype-dev
-    - PNG image display support handled by libpng-dev
-    - JPEG image display support handled by libjpeg-dev
+- Make and C compiler (duh)
+- GPIO support handled by libgpiod-dev
+- Truetype font support handled by libfreetype-dev
+- PNG image display support handled by libpng-dev
+- JPEG image display support handled by libjpeg-dev
 
 On Raspberry Pi OS this can be set by installing all relevant packages.
 To build C programs you need:
@@ -46,10 +46,10 @@ Initialize the library with `dh_init(NULL)`, close it with `dh_close()`.
 
 # Assumptions
 
-    - Only one DHMini is connected.
-    - The Linux kernel attaches DHMini to spidev #1. If it attaches to a different SPI descriptor, this can be changed by passing a configuration struct to `dh_init()`.
-    - Byte-swapping is needed between Raspberry (Arm) byte ordering and ST7789 for 16-bit values. If this is not the case, the `SWAP16()` macro needs to be modified to not change its argument.
-    - Pointer size is the same as sizeof(unsigned long). This is true on 32-bit and 64-bit versions of Raspberry OS.
+- Only one DHMini is connected.
+- The Linux kernel attaches DHMini to spidev #1. If it attaches to a different SPI descriptor, this can be changed by passing a configuration struct to `dh_init()`.
+- Byte-swapping is needed between Raspberry (Arm) byte ordering and ST7789 for 16-bit values. If this is not the case, the `SWAP16()` macro needs to be modified to not change its argument.
+- Pointer size is the same as sizeof(unsigned long). This is true on 32-bit and 64-bit versions of Raspberry OS.
 
 # Concepts
 
