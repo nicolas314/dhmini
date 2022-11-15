@@ -3,7 +3,7 @@ DHMini
 
 C driver for the Pimoroni Mini Display Hat on RPI Zero/Zero2.
 
-This library allows controlling the Pimoroni Display Hat Mini (hereafter: DHMini) from C programs.
+This library allows controlling the [Pimoroni Display Hat Mini](https://shop.pimoroni.com/products/display-hat-mini) (hereafter: DHMini) from C programs.
 
 
 # Compiling
