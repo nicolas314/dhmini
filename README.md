@@ -61,16 +61,7 @@ The library exposes a frame buffer as a pointer to a width x height array of 16-
 
 # Useful functions
 
-    dh_init(config_t * config)
-
-Initializes the ST7789 display.
-
-    dh_close()
-
-    dh_get_size()
-
-Returns the size of the screen in pixels
-
+See header files for more information.
 
 
 
