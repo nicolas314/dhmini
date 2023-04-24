@@ -1,6 +1,9 @@
 DHMini
 ======
 
+[DHmini 1](dhmini1.jpg)
+[DHmini 2](dhmini2.jpg)
+
 C driver for the Pimoroni Mini Display Hat on RPI Zero/Zero2.
 
 This library allows controlling the Pimoroni Display Hat Mini (hereafter: DHMini) from C programs.
