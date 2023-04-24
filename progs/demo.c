@@ -23,6 +23,8 @@ void randomize(uint16_t * rect, uint16_t * color)
     return ;
 }
 
+#define DELAY 1
+
 int main(void) {
     int i ;
     uint16_t r[6];
@@ -36,6 +38,12 @@ int main(void) {
         .width = DHMINI_WIDTH,
         .height = DHMINI_HEIGHT
     };
+    uint16_t colors[] = {
+        C_BLACK, C_DKGREY, C_LTGREY, C_WHITE,
+        C_RED, C_BLUE, C_GREEN, C_BROWN,
+        C_PURPLE, C_LTGREEN, C_LTBLUE, C_CYAN,
+        C_ORANGE, C_YELLOW, C_TAN, C_PINK
+    };
     if (dh_init(&config)!=0) {
         printf("cannot initialize display: aborting\n");
         return -1 ;
@@ -43,24 +51,21 @@ int main(void) {
     srand(getpid());
 
     printf("dh_fill\n");
-    printf("red\n");
-    dh_fill(C_RED);
-    usleep(500000);
-    printf("yellow\n");
-    dh_fill(C_YELLOW);
-    usleep(500000);
-    printf("blue\n");
-    dh_fill(C_BLUE);
-    usleep(500000);
-    printf("green\n");
-    dh_fill(C_GREEN);
-    usleep(500000);
-    printf("white\n");
-    dh_fill(C_WHITE);
-    usleep(500000);
     printf("black\n");
     dh_fill(C_BLACK);
-    usleep(500000);
+    sleep(DELAY);
+
+    printf("dh_rectangle %d colors\n", sizeof(colors)/sizeof(uint16_t));
+    for (i=0 ; i<sizeof(colors)/sizeof(uint16_t) ; i++) {
+        dh_rectangle((i%4)*config.width/4,
+                     (i/4)*config.height/4,
+                     ((i%4)+1)*config.width/4,
+                     (1+i/4)*config.height/4,
+                     colors[i],
+                     1);
+        dh_display();
+        sleep(DELAY);
+    }
 
     printf("dh_rectangle\n");
     dh_fill(C_BLACK);
@@ -74,7 +79,7 @@ int main(void) {
         dh_rectangle(r[2], r[3], r[4], r[5], color, 1);
         dh_display();
     }
-    sleep(1);
+    sleep(DELAY);
 
     printf("dh_line\n");
     dh_fill(C_BLACK);
@@ -83,7 +88,7 @@ int main(void) {
         dh_line(r[2], r[3], r[4], r[5], color);
         dh_display();
     }
-    sleep(1);
+    sleep(DELAY);
 
     printf("dh_putpix\n");
     dh_fill(C_BLACK);
@@ -92,7 +97,7 @@ int main(void) {
         dh_putpix(r[2], r[3], color);
         dh_display();
     }
-    sleep(1);
+    sleep(DELAY);
     dh_fill(C_BLACK);
     return 0;
 }

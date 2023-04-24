@@ -71,3 +71,18 @@ void dh_printf(uint16_t color, char * fmt, ...)
     return ; 
 }
 
+void dh_printf_at(uint16_t color, int line_num, char * fmt, ...)
+{
+    int w, h ;
+    uint16_t * frame_plus ;
+    char       line[LINE_SZ+1];
+
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(line, LINE_SZ, fmt, ap);
+    va_end(ap);
+    dh_line8x16(line, line_num, color);
+    return ; 
+}
+
+

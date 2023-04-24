@@ -1,5 +1,5 @@
-#ifndef _DHTEXT_H_
-#define _DHTEXT_H_
+#ifndef _DH_TRUETYPE_H_
+#define _DH_TRUETYPE_H_
 
 /*
  * Display text with fancy TTF fonts

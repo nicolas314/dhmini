@@ -15,12 +15,22 @@
 #define DHMINI_HEIGHT   240
 
 /* Some RGB565 colours defined for convenience */
-#define C_RED       0xf800
-#define C_YELLOW    0xffe0
-#define C_BLUE      0x001f
-#define C_GREEN     0x0400
-#define C_WHITE     0xffff
 #define C_BLACK     0x0000
+#define C_DKGREY    0x52aa
+#define C_RED       0xa904
+#define C_BLUE      0x2a5a
+#define C_GREEN     0x1b42
+#define C_BROWN     0x8243
+#define C_PURPLE    0x8138
+#define C_LTGREY    0xa514
+#define C_LTGREEN   0x862f
+#define C_LTBLUE    0x9d7f
+#define C_CYAN      0x2e9a
+#define C_ORANGE    0xfc86
+#define C_YELLOW    0xff66
+#define C_TAN       0xeef7
+#define C_PINK      0xfe7e
+#define C_WHITE     0xffff
 
 /*
  * Configuration for the dhmini object passed to dh_init()
@@ -48,6 +58,9 @@ int dh_init(dh_config_t * config);
  * Registered with atexit()
  */
 void dh_close(void);
+
+/* Set backlight */
+void dh_backlight_set(int value);
 
 /*
  * Get frame size in pixels once initialized

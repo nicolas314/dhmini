@@ -218,7 +218,7 @@ static int dh_spi_write_8bit_arr(uint8_t *data, uint16_t len)
 	return 0;
 }
 
-#define CHUNK_SZ    (1024)
+#define CHUNK_SZ    (2048)
 static int dh_spi_write_16bit_arr(uint16_t *data, int count)
 {
     int sent=0 ;
@@ -429,6 +429,12 @@ int dh_init(dh_config_t * config)
 
     atexit(dh_close);
     return 0;
+}
+
+
+void dh_backlight_set(int value)
+{
+    gpiod_line_set_value(dhmini.gpio_backlight, value);
 }
 
 void dh_putpix(

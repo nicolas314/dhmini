@@ -7,7 +7,7 @@
 #include <libgen.h>
 
 #include "dhmini.h"
-#include "text.h"
+#include "truetype.h"
 #include "console.h"
 
 #define FILENAME_SZ     1024
@@ -67,16 +67,26 @@ void pick_color(uint8_t * color)
 int main(int argc, char *argv[]) {
     int width, height ;
     uint8_t  color[3];
-    char * fontname ;
+    char * fontname=NULL ;
+    char * text="Hello world";
+    int c ;
 
-    if (argc<2) {
-        printf("use: %s text [font]\n", argv[0]);
-        return -1;
+    while ((c=getopt(argc, argv, "f:"))!=EOF) {
+        switch (c) {
+            case 'f':
+            fontname = optarg;
+            break;
+
+            default:
+            printf("use: %s [-f font] text\n", argv[0]);
+            return -1 ;
+        }
+    }
+    if (argc-optind>0) {
+        text = argv[optind];
     }
     srand(getpid());
-    if (argc==3) {
-        fontname = argv[2];
-    } else {
+    if (!fontname) {
         fontname = pick_font(FONT_PATH);
     }
     pick_color(color);
@@ -85,7 +95,7 @@ int main(int argc, char *argv[]) {
         return -1 ;
     }
     dh_get_size(&width, &height);
-    dh_text(argv[1],
+    dh_text(text,
             fontname,
             color,
             0,
