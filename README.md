@@ -1,8 +1,8 @@
 DHMini
 ======
 
-[DHmini 1](dhmini1.jpg)
-[DHmini 2](dhmini2.jpg)
+![DHmini 1](dhmini1.jpg)
+![DHmini 2](dhmini2.jpg)
 
 C driver for the Pimoroni Mini Display Hat on RPI Zero/Zero2.
 
