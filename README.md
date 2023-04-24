@@ -13,10 +13,10 @@ This library allows controlling the Pimoroni Display Hat Mini (hereafter: DHMini
 
 Dependencies:
 
-    - Make and C compiler (duh)
-    - GPIO support handled by libgpiod-dev
-    - Truetype font support handled by libfreetype-dev
-    - PNG image and JPEG image decoding handled by [STB](https://github.com/nothings/stb)
+- Make and C compiler (duh)
+- GPIO support handled by libgpiod-dev
+- Truetype font support handled by libfreetype-dev
+- PNG image and JPEG image decoding handled by [STB](https://github.com/nothings/stb)
 
 On Raspberry Pi OS this can be set by installing relevant packages.
 To build C programs you need:
